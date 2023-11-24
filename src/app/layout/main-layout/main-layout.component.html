@@ -1,7 +1,9 @@
 <mat-drawer-container>
-  <mat-drawer #drawer [mode]="drawerMode()" [opened]="!small()"
-    >I'm a drawer</mat-drawer
-  >
+  <mat-drawer #drawer [mode]="drawerMode()" [opened]="!small()">
+    <div class="drawer">
+      <ng-content select="[nav]"></ng-content>
+    </div>
+  </mat-drawer>
 
   <mat-drawer-content>
     <header>

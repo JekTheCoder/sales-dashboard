@@ -1,0 +1,9 @@
+<nav>
+  <ul>
+    @for (item of items; track item.link) {
+    <li>
+      <a [routerLink]="item.link" mat-button>{{ item.label }}</a>
+    </li>
+    }
+  </ul>
+</nav>
