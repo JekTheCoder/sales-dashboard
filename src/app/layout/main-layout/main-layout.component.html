@@ -1,0 +1,20 @@
+<mat-drawer-container>
+  <mat-drawer #drawer [mode]="drawerMode()" [opened]="!small()"
+    >I'm a drawer</mat-drawer
+  >
+
+  <mat-drawer-content>
+    <header>
+      <nav>
+        @if (small()) {
+        <button (click)="drawer.toggle()" mat-icon-button>
+          <mat-icon>menu</mat-icon>
+        </button>
+        }
+      </nav>
+    </header>
+
+    <p>wooo seeee</p>
+    <ng-content></ng-content>
+  </mat-drawer-content>
+</mat-drawer-container>
