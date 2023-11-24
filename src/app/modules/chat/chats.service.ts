@@ -60,7 +60,7 @@ export class ChatsService {
         user: {
           id: 'user101',
           name: 'Alice Smith',
-          avatar: 'https://example.com/alice_avatar.jpg',
+          avatar: 'alice_avatar.jpg',
         },
         content: 'Hello, how are you?',
       },
@@ -69,7 +69,7 @@ export class ChatsService {
         user: {
           id: 'user202',
           name: 'Bob Johnson',
-          avatar: 'https://example.com/bob_avatar.jpg',
+          avatar: 'bob_avatar.jpg',
         },
         content: 'I am fine, thank you',
       }

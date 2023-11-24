@@ -1,0 +1,12 @@
+@use "theme";
+@use "@angular/material" as mat;
+
+$primary-default: mat.get-theme-color(
+  theme.$sales-dashboard-theme,
+  primary,
+  default
+);
+
+.bg-primary {
+  background-color: $primary-default;
+}
