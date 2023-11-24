@@ -60,6 +60,9 @@ devDependencies:
   '@angular/compiler-cli':
     specifier: ^17.0.0
     version: 17.0.0(@angular/compiler@17.0.0)(typescript@5.2.2)
+  '@angular/language-service':
+    specifier: ^17.0.4
+    version: 17.0.4
   '@types/express':
     specifier: ^4.17.17
     version: 4.17.17
@@ -406,6 +409,11 @@ packages:
       rxjs: 7.8.0
       tslib: 2.3.0
     dev: false
+
+  /@angular/language-service@17.0.4:
+    resolution: {integrity: sha512-foS5HLIj6rZ/WMg1Zo1BPCaFP93GdJ6vG3f7ieHodiSeOexxzi2WqB7uh0yDYMqoemu/+YNYbOgrxBTkOpsoLg==}
+    engines: {node: ^18.13.0 || >=20.9.0}
+    dev: true
 
   /@angular/material@17.0.1(@angular/animations@17.0.0)(@angular/cdk@17.0.1)(@angular/common@17.0.0)(@angular/core@17.0.0)(@angular/forms@17.0.0)(@angular/platform-browser@17.0.0)(rxjs@7.8.0):
     resolution: {integrity: sha512-avicxHCJAeg26Tg8z6+g54tMTQZPP5kaaRmkd97QGtJn3wKiAen6WOgmEhlrA4jPJ71CsdyxcUruEX+BHB6X4Q==}
