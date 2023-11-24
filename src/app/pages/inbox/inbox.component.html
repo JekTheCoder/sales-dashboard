@@ -1,41 +1,42 @@
-<mat-card>
-  <aside>
-    <div
-      class="bg-primary bar"
-      [style.transform]="chatBarTransform()"
-      [style.height]="itemHeight"
-      [hidden]="!chatBarTransform()"
-    ></div>
+<div class="container">
+  <mat-card>
+    <aside>
+      <div
+        class="bg-primary bar"
+        [style.transform]="chatBarTransform()"
+        [style.height]="itemHeight"
+        [hidden]="!chatBarTransform()"
+      ></div>
 
-    <ul>
-      @for (chat of chats(); track chat.id) {
-      <li>
-        <a
-          mat-button
-          routerLink
-          [queryParams]="{ chat: chat.id }"
-          [style.height]="itemHeight"
-        >
-          {{ chat.user.name }}
-        </a>
-      </li>
+      <ul>
+        @for (chat of chats(); track chat.id) {
+        <li>
+          <a
+            routerLink
+            [queryParams]="{ chat: chat.id }"
+            [style.height]="itemHeight"
+          >
+            <app-chat-preview [name]="chat.user.name" [content]="'wosi'" />
+          </a>
+        </li>
+        }
+      </ul>
+    </aside>
+
+    <article>
+      @if (chatData(); as chatData) {
+      <header>
+        <h2>{{ chatData.chat.user.name }}</h2>
+      </header>
+
+      <div class="chat-content">
+        @if (chatData.chat$ | async; as chat) {
+        <app-chat-messages [messages]="chat.messages"></app-chat-messages>
+        } @else { ...Loading }
+      </div>
       }
-    </ul>
-  </aside>
+    </article>
 
-  <article>
-    @if (chatData(); as chatData) {
-    <header>
-      <h2>{{ chatData.chat.user.name }}</h2>
-    </header>
-
-    <div class="chat-content">
-      @if (chatData.chat$ | async; as chat) {
-      <app-chat-messages [messages]="chat.messages"></app-chat-messages>
-      } @else { ...Loading }
-    </div>
-    }
-  </article>
-
-  <aside></aside>
-</mat-card>
+    <aside></aside>
+  </mat-card>
+</div>

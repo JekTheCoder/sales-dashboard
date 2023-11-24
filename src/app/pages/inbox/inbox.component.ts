@@ -12,6 +12,7 @@ import { map } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { ChatsService } from '@modules/chat/chats.service';
 import { ChatMessagesComponent } from '@modules/chat/chat-messages/chat-messages.component';
+import { ChatPreviewComponent } from '@modules/chat/chat-preview/chat-preview.component';
 
 @Component({
   selector: 'app-inbox',
@@ -24,6 +25,7 @@ import { ChatMessagesComponent } from '@modules/chat/chat-messages/chat-messages
     MatButtonModule,
 
     ChatMessagesComponent,
+    ChatPreviewComponent,
   ],
   templateUrl: './inbox.component.html',
   styleUrls: ['./inbox.component.scss'],
@@ -32,7 +34,7 @@ import { ChatMessagesComponent } from '@modules/chat/chat-messages/chat-messages
 export default class InboxComponent {
   #chatsService = inject(ChatsService);
 
-  readonly itemHeight = '100px';
+  readonly itemHeight = '80px';
   protected chats = toSignal(this.#chatsService.get(), {
     initialValue: [],
   });

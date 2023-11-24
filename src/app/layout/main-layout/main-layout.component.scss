@@ -10,3 +10,8 @@ header {
   display: grid;
   width: 11rem;
 }
+
+.content {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}

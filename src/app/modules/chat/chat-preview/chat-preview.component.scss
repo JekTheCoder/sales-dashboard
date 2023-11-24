@@ -1,0 +1,31 @@
+:host {
+  display: grid;
+  position: relative;
+  height: inherit;
+  overflow: hidden;
+}
+
+.outer {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  height: inherit;
+}
+
+.img-container {
+  position: relative;
+  height: inherit;
+  max-height: 100%;
+  min-height: 0;
+
+  padding: 0.5rem;
+}
+
+img {
+  height: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}

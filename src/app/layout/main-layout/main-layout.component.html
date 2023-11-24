@@ -5,7 +5,7 @@
     </div>
   </mat-drawer>
 
-  <mat-drawer-content>
+  <mat-drawer-content class="content">
     <header>
       <nav>
         @if (small()) {
@@ -16,7 +16,8 @@
       </nav>
     </header>
 
-    <p>wooo seeee</p>
-    <ng-content></ng-content>
+    <div class="page">
+      <ng-content></ng-content>
+    </div>
   </mat-drawer-content>
 </mat-drawer-container>
