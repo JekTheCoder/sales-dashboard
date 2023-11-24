@@ -11,11 +11,20 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { ChatsService } from '@modules/chat/chats.service';
+import { ChatMessagesComponent } from '@modules/chat/chat-messages/chat-messages.component';
 
 @Component({
   selector: 'app-inbox',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, RouterLink],
+  imports: [
+    CommonModule,
+    RouterLink,
+
+    MatCardModule,
+    MatButtonModule,
+
+    ChatMessagesComponent,
+  ],
   templateUrl: './inbox.component.html',
   styleUrls: ['./inbox.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -28,14 +37,27 @@ export default class InboxComponent {
     initialValue: [],
   });
 
-  protected chatSelected = toSignal(
+  protected chatSelectedId = toSignal(
     inject(ActivatedRoute).queryParamMap.pipe(
       map((params) => params.get('chat'))
     )
   );
 
+  protected chatData = computed(() => {
+    const id = this.chatSelectedId();
+    const chats = this.chats();
+
+    const chat = chats.find((chat) => chat.id === id);
+    if (!chat) return null;
+
+    return {
+      chat,
+      chat$: this.#chatsService.getOne(chat.id),
+    }
+  })
+
   protected chatBarTransform = computed(() => {
-    const id = this.chatSelected();
+    const id = this.chatSelectedId();
     const chats = this.chats();
 
     const i = chats.findIndex((chat) => chat.id === id);

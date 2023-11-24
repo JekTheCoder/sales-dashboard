@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ChatPreview } from './types';
+import { Chat, ChatMessage, ChatPreview } from './types';
 import { of } from 'rxjs';
 
 @Injectable({
@@ -51,5 +51,35 @@ export class ChatsService {
     ];
 
     return of(chats);
+  }
+
+  getOne(id: string) {
+    const messages: ChatMessage[] = [
+      {
+        id: 'message001',
+        user: {
+          id: 'user101',
+          name: 'Alice Smith',
+          avatar: 'https://example.com/alice_avatar.jpg',
+        },
+        content: 'Hello, how are you?',
+      },
+      {
+        id: 'message002',
+        user: {
+          id: 'user202',
+          name: 'Bob Johnson',
+          avatar: 'https://example.com/bob_avatar.jpg',
+        },
+        content: 'I am fine, thank you',
+      }
+    ];
+
+    const chat: Chat = {
+      id,
+      messages,
+    };
+
+    return of(chat);
   }
 }

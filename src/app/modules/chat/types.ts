@@ -8,3 +8,14 @@ export type UserPreview = {
   name: string;
   avatar: string;
 };
+
+export type Chat = {
+  id: string;
+  messages: ChatMessage[];
+};
+
+export type ChatMessage = {
+  id: string;
+  user: UserPreview;
+  content: string;
+};

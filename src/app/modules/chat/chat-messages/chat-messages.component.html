@@ -1,0 +1,7 @@
+<ul>
+  @for (message of messages; track message.id) {
+  <li>
+    <app-chat-message [message]="message" />
+  </li>
+  }
+</ul>

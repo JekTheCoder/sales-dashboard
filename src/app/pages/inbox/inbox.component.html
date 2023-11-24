@@ -1,35 +1,41 @@
 <mat-card>
-  <mat-card-header>
-    <mat-card-title>Inbox</mat-card-title>
-  </mat-card-header>
+  <aside>
+    <div
+      class="bar"
+      [style.transform]="chatBarTransform()"
+      [style.height]="itemHeight"
+      [hidden]="!chatBarTransform()"
+    ></div>
 
-  <mat-card-content>
-    <aside>
-      <div
-        class="bar"
-        [style.transform]="chatBarTransform()"
-        [style.height]="itemHeight"
-        [hidden]="!chatBarTransform()"
-      ></div>
+    <ul>
+      @for (chat of chats(); track chat.id) {
+      <li>
+        <a
+          mat-button
+          routerLink
+          [queryParams]="{ chat: chat.id }"
+          [style.height]="itemHeight"
+        >
+          {{ chat.user.name }}
+        </a>
+      </li>
+      }
+    </ul>
+  </aside>
 
-      <ul>
-        @for (chat of chats(); track chat.id) {
-        <li>
-          <a
-            mat-button
-            routerLink
-            [queryParams]="{ chat: chat.id }"
-            [style.height]="itemHeight"
-          >
-            {{ chat.user.name }}
-          </a>
-        </li>
-        }
-      </ul>
-    </aside>
+  <article>
+    @if (chatData(); as chatData) {
+    <header>
+      <h2>{{ chatData.chat.user.name }}</h2>
+    </header>
 
-    <article></article>
+    <div class="chat-content">
+      @if (chatData.chat$ | async; as chat) {
+      <app-chat-messages [messages]="chat.messages"></app-chat-messages>
+      } @else { ...Loading }
+    </div>
+    }
+  </article>
 
-    <aside></aside>
-  </mat-card-content>
+  <aside></aside>
 </mat-card>

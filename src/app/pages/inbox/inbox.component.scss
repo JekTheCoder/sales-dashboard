@@ -8,3 +8,17 @@
 aside {
   display: flex;
 }
+
+mat-card {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+article {
+  background: var(--mat-sidenav-content-background-color);
+}
+
+.chat-content {
+  padding: 2px;
+}
