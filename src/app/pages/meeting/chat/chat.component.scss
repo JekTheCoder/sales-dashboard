@@ -31,3 +31,25 @@ footer {
 :host ::ng-deep .mat-mdc-form-field-subscript-wrapper {
   display: none;
 }
+
+.logo-container {
+  height: 1.5rem;
+  aspect-ratio: 1;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.meeting-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
