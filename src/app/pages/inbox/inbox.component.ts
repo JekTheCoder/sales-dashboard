@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   inject,
   computed,
+  signal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
@@ -13,6 +14,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { ChatsService } from '@modules/chat/chats.service';
 import { ChatMessagesComponent } from '@modules/chat/chat-messages/chat-messages.component';
 import { ChatPreviewComponent } from '@modules/chat/chat-preview/chat-preview.component';
+
+const enum DeckLayout {
+  Preview = 'preview',
+  Focus = 'focus',
+}
+
+const DECK_LAYOUT = {
+  Preview: DeckLayout.Preview,
+  Focus: DeckLayout.Focus,
+};
 
 @Component({
   selector: 'app-inbox',
@@ -34,9 +45,11 @@ import { ChatPreviewComponent } from '@modules/chat/chat-preview/chat-preview.co
 export default class InboxComponent {
   #chatsService = inject(ChatsService);
 
-  readonly itemHeight = '60px'
+  readonly itemHeight = '60px';
+  readonly DECK_LAYOUT = DECK_LAYOUT;
 
-  ;
+  protected deckMode = signal(DeckLayout.Preview);
+
   protected chats = toSignal(this.#chatsService.get(), {
     initialValue: [],
   });
@@ -57,8 +70,8 @@ export default class InboxComponent {
     return {
       chat,
       chat$: this.#chatsService.getOne(chat.id),
-    }
-  })
+    };
+  });
 
   protected chatBarTransform = computed(() => {
     const id = this.chatSelectedId();
@@ -71,4 +84,12 @@ export default class InboxComponent {
 
     return `translateY(${i * 100}%)`;
   });
+
+  toogleLayout() {
+    this.deckMode.set(
+      this.deckMode() === DeckLayout.Preview
+        ? DeckLayout.Focus
+        : DeckLayout.Preview
+    );
+  }
 }

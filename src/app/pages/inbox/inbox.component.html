@@ -1,6 +1,7 @@
 <div class="container">
+  <button (click)="toogleLayout()">a</button>
   <mat-card>
-    <aside>
+    <aside class="left-panel">
       <div
         class="bg-primary bar"
         [style.transform]="chatBarTransform()"
@@ -23,20 +24,27 @@
       </ul>
     </aside>
 
-    <article>
-      @if (chatData(); as chatData) {
-      <header>
-        <h2>{{ chatData.chat.user.name }}</h2>
-      </header>
+    <div class="article-place"></div>
 
-      <div class="chat-content">
-        @if (chatData.chat$ | async; as chat) {
-        <app-chat-messages [messages]="chat.messages"></app-chat-messages>
-        } @else { ...Loading }
-      </div>
-      }
-    </article>
+    <div
+      class="article-wrapper"
+      [class]="deckMode() === DECK_LAYOUT.Preview ? 'right' : 'left'"
+    >
+      <article>
+        @if (chatData(); as chatData) {
+        <header>
+          <h2>{{ chatData.chat.user.name }}</h2>
+        </header>
 
-    <aside></aside>
+        <div class="chat-content">
+          @if (chatData.chat$ | async; as chat) {
+          <app-chat-messages [messages]="chat.messages"></app-chat-messages>
+          } @else { ...Loading }
+        </div>
+        }
+      </article>
+    </div>
+
+    <aside class="right-panel"></aside>
   </mat-card>
 </div>

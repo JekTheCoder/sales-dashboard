@@ -1,20 +1,59 @@
+$side-width: 30%;
+$center-width: 100% - ($side-width * 2);
+$slide-width: 100% - $side-width;
+
 .bar {
   width: 2px;
 
   transition: transform 0.2s ease-in;
 }
 
-aside {
+mat-card {
   display: flex;
+  flex-direction: row;
+  position: relative;
 }
 
-mat-card {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+.article-place {
+  width: $center-width;
+}
+
+$transition: transform 0.2s ease-in;
+
+.article-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  transition: $transition;
 }
 
 article {
   background: var(--content-background);
+  height: 100%;
+  width: $slide-width;
+
+  transition: $transition;
+}
+
+.right {
+  transform: translateX(100%);
+
+  > article {
+    transform: translateX(-100%);
+  }
+}
+
+.left {
+  transform: translateX(0%);
+
+  > article {
+    transform: translateX(0%);
+  }
+}
+
+aside {
+  width: $side-width;
 }
 
 .chat-content {
@@ -37,7 +76,7 @@ ul {
 }
 
 li {
-  $border: .1px;
+  $border: 0.1px;
   border-bottom: $border solid var(--divider-color);
   margin-bottom: -$border;
 }
