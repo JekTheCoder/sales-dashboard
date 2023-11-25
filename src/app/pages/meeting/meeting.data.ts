@@ -11,6 +11,26 @@ const annotations: Annotation[] = [
       'Ya se le presentó un resumen del servicio "ADMINISTRACION RESTAURANTE"',
     date: '2020-01-01',
   },
+  {
+    id: 'annotation002',
+    seller: {
+      id: 'user202',
+      name: 'Bob Johnson',
+    },
+    content:
+      'Se realizaron pruebas de funcionamiento del servicio "ADMINISTRACION RESTAURANTE"',
+    date: '2020-01-01',
+  },
+  {
+    id: 'annotation003',
+    seller: {
+      id: 'user303',
+      name: 'Eva Martinez',
+    },
+    content:
+      'Se le explicó el método de pago del servicio "ADMINISTRACION RESTAURANTE"',
+    date: '2020-01-01',
+  },
 ];
 
 export const meeting = {
