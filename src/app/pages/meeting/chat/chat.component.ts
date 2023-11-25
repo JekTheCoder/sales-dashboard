@@ -10,6 +10,7 @@ import {
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
   MatFormFieldDefaultOptions,
 } from '@angular/material/form-field';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-chat',
@@ -20,6 +21,7 @@ import {
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatTooltipModule,
 
     ChatMessagesComponent,
   ],

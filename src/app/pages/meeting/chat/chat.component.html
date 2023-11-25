@@ -1,5 +1,25 @@
 <header class="mat-elevation-z1">
-  <h2>{{ name }}</h2>
+  <div>
+    <h2>{{ name }}</h2>
+  </div>
+
+  <div class="actions">
+    <button mat-icon-button matTooltip="Programar seguimiento">
+      <mat-icon>schedule</mat-icon>
+    </button>
+
+    <button mat-icon-button matTooltip="Añadir información">
+      <mat-icon>info</mat-icon>
+    </button>
+
+    <button mat-icon-button matTooltip="Finalizar reunión" color="warn">
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <button matTooltip="Otras acciones" mat-icon-button>
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </div>
 </header>
 
 <div class="chat-content">

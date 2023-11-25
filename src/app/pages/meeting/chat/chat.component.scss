@@ -1,6 +1,14 @@
 header {
-  padding: 2rem;
+  padding: 1rem 2rem;
   background: var(--bg-card);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  gap: 0.2rem;
 }
 
 footer {
