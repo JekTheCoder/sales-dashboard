@@ -1,0 +1,72 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(30rem, 2fr) 5fr;
+
+  height: 100%;
+  padding: 1rem;
+}
+
+app-chat {
+  height: 100%;
+}
+
+.info {
+  background: var(--bg-card);
+}
+
+ul {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.client-info {
+  padding: 1rem;
+
+  .img-container {
+    height: 100%;
+    aspect-ratio: 1;
+
+    padding: 1rem;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+  }
+
+  header {
+    display: grid;
+    place-content: center;
+    padding: 2rem;
+
+    text-align: center;
+  }
+
+  .client-name {
+    color: var(--text-secondary);
+  }
+
+  li {
+    strong {
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.annotations {
+  li {
+    display: grid;
+    gap: 0.4rem;
+    padding: 1rem;
+  }
+
+  .annotation-subcontent {
+    font-size: 0.8rem;
+    text-align: end;
+    color: var(--text-secondary);
+  }
+}

@@ -1,0 +1,17 @@
+<header class="mat-elevation-z1">
+  <h2>{{ name }}</h2>
+</header>
+
+<div class="chat-content">
+  <app-chat-messages [messages]="messages"></app-chat-messages>
+</div>
+
+<footer class="mat-elevation-z2">
+  <mat-form-field>
+    <input matInput type="text" />
+  </mat-form-field>
+
+  <button mat-icon-button>
+    <mat-icon>send</mat-icon>
+  </button>
+</footer>

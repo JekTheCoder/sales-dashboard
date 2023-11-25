@@ -22,5 +22,9 @@ export class NavComponent {
       label: 'Inbox',
       link: '/inbox',
     },
+    {
+      label: 'Meeting',
+      link: '/meeting',
+    }
   ];
 }

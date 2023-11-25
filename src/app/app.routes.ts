@@ -10,4 +10,9 @@ export const routes: Routes = [
     path: 'inbox',
     loadComponent: () => import('./pages/inbox/inbox.component'),
   },
+
+  {
+    path: 'meeting',
+    loadComponent: () => import('./pages/meeting/meeting.component'),
+  }
 ];

@@ -5,12 +5,14 @@
 @use "./styles/theme";
 @use "./app/modules/chat/chat-preview/chat-preview-theme";
 @use "./app/pages/inbox/inbox-theme";
+@use "./app/pages/meeting/meeting-theme";
 
 @include mat.core();
 
 @include mat.all-component-themes(theme.$sales-dashboard-theme);
 @include chat-preview-theme.theme(theme.$sales-dashboard-theme);
 @include inbox-theme.theme(theme.$sales-dashboard-theme);
+@include meeting-theme.theme(theme.$sales-dashboard-theme);
 
 :root {
   --mat-sidenav-scrim-color: rgba(0, 0, 0, 0.2);

@@ -90,7 +90,12 @@ ul {
 }
 
 li {
-  $border: 0.1px;
+  $border: 1px;
   border-bottom: $border solid var(--divider-color);
   margin-bottom: -$border;
+}
+
+.bar {
+  position: absolute;
+  top: 0;
 }
