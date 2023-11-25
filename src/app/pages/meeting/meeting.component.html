@@ -35,14 +35,24 @@
         </li>
       </ul>
 
-      <button></button>
+      <button mat-stroked-button color="primary">
+        Ver más
+        <mat-icon>chevron_right</mat-icon>
+      </button>
     </section>
 
     <section class="annotations">
       <ul>
         @for (annotation of meeting.annotations; track annotation.id) {
         <li class="mat-elevation-z1">
-          <p class="annotation-content">{{ annotation.content }}</p>
+          <div class="annotation-body">
+            <p class="annotation-content">{{ annotation.content }}</p>
+
+            <button mat-icon-button color="primary" matTooltip="Ver más">
+              <mat-icon>chevron_right</mat-icon>
+            </button>
+          </div>
+
           <p class="annotation-subcontent">
             {{ annotation.seller.name }},
             {{ annotation.date | date : "dd/MM/yyyy" }}
