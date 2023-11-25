@@ -1,0 +1,13 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+@mixin color($theme) {
+  app-inbox {
+    --divider-color: #{mat.get-theme-color($theme, foreground, divider)};
+    --content-background: #{mat.get-theme-color($theme, background, background)};
+  }
+}
+
+@mixin theme($theme) {
+  @include color($theme);
+}

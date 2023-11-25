@@ -34,7 +34,9 @@ import { ChatPreviewComponent } from '@modules/chat/chat-preview/chat-preview.co
 export default class InboxComponent {
   #chatsService = inject(ChatsService);
 
-  readonly itemHeight = '80px';
+  readonly itemHeight = '60px'
+
+  ;
   protected chats = toSignal(this.#chatsService.get(), {
     initialValue: [],
   });

@@ -21,7 +21,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 export class MainLayoutComponent {
   protected small = toSignal(
     inject(BreakpointObserver)
-     .observe([Breakpoints.Small, Breakpoints.XSmall])
+     .observe([Breakpoints.Small, Breakpoints.XSmall, Breakpoints.Medium])
       .pipe(map((x) => x.matches)),
     {
       requireSync: true,

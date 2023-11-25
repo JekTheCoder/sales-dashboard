@@ -1,0 +1,18 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+@mixin color($theme) {
+  app-chat-preview {
+    .name {
+      color: mat.get-theme-color($theme, foreground, text);
+    }
+
+    .content {
+      color: mat.get-theme-color($theme, foreground, secondary-text);
+    }
+  }
+}
+
+@mixin theme($theme) {
+  @include color($theme);
+}
