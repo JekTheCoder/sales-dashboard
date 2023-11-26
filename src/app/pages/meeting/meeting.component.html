@@ -18,27 +18,48 @@
         <h2>{{ meeting.name }}</h2>
       </header>
 
-      <ul>
-        <li>
-          <strong>Company:</strong>
-          <span>{{ meeting.client.company.name }}</span>
-        </li>
+      <div class="data-list-layout">
+        <ul>
+          <li>
+            <strong>Empresa:</strong>
+            <span>{{ meeting.client.company.name }}</span>
+          </li>
 
-        <li>
-          <strong>Phone:</strong>
-          <span class="client-name">{{ meeting.client.phone }}</span>
-        </li>
+          <li>
+            <strong>Teléfono:</strong>
+            <span class="client-name">{{ meeting.client.phone }}</span>
+          </li>
 
-        <li>
-          <strong>Email:</strong>
-          <span>{{ meeting.client.email }}</span>
-        </li>
-      </ul>
+          <li>
+            <strong>Email:</strong>
+            <span>{{ meeting.client.email }}</span>
+          </li>
 
-      <button mat-stroked-button color="primary">
-        Ver más
-        <mat-icon>chevron_right</mat-icon>
-      </button>
+          <li>
+            <strong>Cargo:</strong>
+            <span>{{ meeting.client.jobTitle }}</span>
+          </li>
+        </ul>
+
+        <hr />
+
+        <ul>
+          <li>
+            <strong>Proyecto:</strong>
+            <span>{{  meeting.project.name }}</span>
+          </li>
+
+          <li>
+            <strong>Tipo de proyecto:</strong>
+            <span>{{ meeting.project.purchaseModel }}</span>
+          </li>
+        </ul>
+
+        <button mat-stroked-button color="primary">
+          Ver más
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
     </section>
 
     <section class="annotations">

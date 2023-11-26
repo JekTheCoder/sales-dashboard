@@ -36,22 +36,30 @@ const annotations: Annotation[] = [
 
 export const meeting = {
   id: 'aa',
-  name: 'Meeting',
+  name: 'Mariano Martínez',
   client: {
     id: 'aa2',
     name: 'Client',
     avatar: 'https://via.placeholder.com/150',
-    phone: '+1 234 567 890',
-    email: 'k3E9Z@example.com',
+
+    phone: '+51 992 567 890',
+    email: 'mario@martinez.com',
     company: {
       name: 'Company',
     },
+    gender: 'Masculino',
+    jobTitle: 'Gerente general',
   },
   chat: {
     id: 'aa3',
     messages,
   },
   annotations,
+  project: {
+    id: 'aa4',
+    name: 'ADMINISTRACIÓN RESTAURANTE',
+    purchaseModel: 'Servicio por suscripción',
+  },
 };
 
 type Annotation = {

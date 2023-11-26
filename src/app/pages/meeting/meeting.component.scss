@@ -65,6 +65,37 @@ ul {
   button {
     width: 100%;
   }
+
+  .client-data-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-rows: 1fr auto;
+  }
+
+  ul {
+    display: grid;
+    gap: 0.2rem;
+    grid-auto-rows: min-content;
+  }
+
+  .data-list-layout {
+    display: grid;
+    grid-template-rows: min-content min-content 1fr auto;
+    gap: 0.5rem;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    width: 90%;
+    background: rgba(0, 0, 0, 0.12);
+  }
+}
+
+@media screen and (min-width: 1092px) {
+  .client-info {
+    grid-template-columns: auto 1fr;
+  }
 }
 
 .annotations {
