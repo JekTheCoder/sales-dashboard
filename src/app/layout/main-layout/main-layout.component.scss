@@ -3,15 +3,29 @@ mat-drawer-container {
 }
 
 header {
-  padding: .25rem;
+  padding: 0.25rem;
 }
 
 .drawer {
   display: grid;
-  width: 11rem;
+  grid-template-rows: min-content;
+  width: 20rem;
+
+  height: 100%;
+  background: #1e293b;
+  color: #fff;
 }
 
 .content {
   display: grid;
   grid-template-rows: auto 1fr;
+}
+
+h1 {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  margin-bottom: 1rem;
 }
