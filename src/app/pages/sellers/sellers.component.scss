@@ -1,0 +1,40 @@
+mat-card {
+  margin: auto;
+  width: 80%;
+}
+
+.actions {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.person {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem;
+  align-items: center;
+}
+
+.img-container {
+  height: 2rem;
+  aspect-ratio: 1;
+}
+
+img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.status {
+  position: absolute;
+  top: 14px;
+}
+
+td {
+  position: relative;
+}
+
+.actions-col {
+  width: 10rem
+}

@@ -13,7 +13,13 @@ type Item = {
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, MatIconModule, MatRippleModule],
+  imports: [
+    CommonModule,
+    RouterLink,
+    RouterLinkActive,
+    MatIconModule,
+    MatRippleModule,
+  ],
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -29,6 +35,11 @@ export class NavComponent {
       label: 'Meeting',
       link: '/meeting',
       icon: 'chat', // A valid material icon
+    },
+    {
+      label: 'Sellers',
+      link: '/sellers',
+      icon: 'supervisor_account',
     },
   ];
 }
