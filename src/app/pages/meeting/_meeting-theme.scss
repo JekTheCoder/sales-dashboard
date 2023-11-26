@@ -4,6 +4,9 @@
 @mixin color($theme) {
   app-meeting {
     --bg-card: #{mat.get-theme-color($theme, background, card)};
+    --bg-header: #{mat.get-theme-color($theme, primary)};
+    --text-header: #fff;
+
     --text-secondary: #{mat.get-theme-color($theme, foreground, text-secondary)};
 
     --other-bg-color: #{mat.get-theme-color($theme, background, card)};

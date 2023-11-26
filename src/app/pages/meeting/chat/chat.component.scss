@@ -1,6 +1,7 @@
 header {
   padding: 1rem 2rem;
-  background: var(--bg-card);
+  background: var(--bg-header);
+  color: var(--text-header);
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
