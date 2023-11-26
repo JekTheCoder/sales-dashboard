@@ -1,95 +1,104 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  inject,
-  computed,
-  signal,
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { map } from 'rxjs';
+import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-import { ChatsService } from '@modules/chat/chats.service';
-import { ChatMessagesComponent } from '@modules/chat/chat-messages/chat-messages.component';
-import { ChatPreviewComponent } from '@modules/chat/chat-preview/chat-preview.component';
+import { MatIconModule } from '@angular/material/icon';
 
-const enum DeckLayout {
-  Preview = 'preview',
-  Focus = 'focus',
-}
-
-const DECK_LAYOUT = {
-  Preview: DeckLayout.Preview,
-  Focus: DeckLayout.Focus,
-};
+const rows = [
+  {
+    id: 1,
+    task: 'Tarea 1',
+    status: 'Pendiente',
+    assigned_by: 'Admin 1',
+    actions: 'Ver detalles',
+  },
+  {
+    id: 2,
+    task: 'Tarea 2',
+    status: 'Completada',
+    assigned_by: 'Admin 2',
+    actions: 'Ver detalles',
+  },
+  {
+    id: 3,
+    task: 'Tarea 3',
+    status: 'Pendiente',
+    assigned_by: 'Admin 3',
+    actions: 'Ver detalles',
+  },
+  {
+    id: 4,
+    task: 'Tarea 4',
+    status: 'Completada',
+    assigned_by: 'Admin 1',
+    actions: 'Ver detalles',
+  },
+  {
+    id: 5,
+    task: 'Tarea 5',
+    status: 'Pendiente',
+    assigned_by: 'Admin 2',
+    actions: 'Ver detalles',
+  },
+  {
+    id: 6,
+    task: 'Tarea 6',
+    status: 'Completada',
+    assigned_by: 'Admin 3',
+    actions: 'Ver detalles',
+  },
+  {
+    id: 7,
+    task: 'Tarea 7',
+    status: 'Pendiente',
+    assigned_by: 'Admin 1',
+    actions: 'Ver detalles',
+  },
+  {
+    id: 8,
+    task: 'Tarea 8',
+    status: 'Completada',
+    assigned_by: 'Admin 2',
+    actions: 'Ver detalles',
+  },
+  {
+    id: 9,
+    task: 'Tarea 9',
+    status: 'Pendiente',
+    assigned_by: 'Admin 3',
+    actions: 'Ver detalles',
+  },
+  {
+    id: 10,
+    task: 'Tarea 10',
+    status: 'Completada',
+    assigned_by: 'Admin 1',
+    actions: 'Ver detalles',
+  },
+];
 
 @Component({
   selector: 'app-inbox',
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink,
-
     MatCardModule,
+    MatTableModule,
     MatButtonModule,
-
-    ChatMessagesComponent,
-    ChatPreviewComponent,
+    MatIconModule,
   ],
   templateUrl: './inbox.component.html',
   styleUrls: ['./inbox.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class InboxComponent {
-  #chatsService = inject(ChatsService);
-
-  readonly itemHeight = '60px';
-  readonly DECK_LAYOUT = DECK_LAYOUT;
-
-  protected deckMode = signal(DeckLayout.Preview);
-
-  protected chats = toSignal(this.#chatsService.get(), {
-    initialValue: [],
-  });
-
-  protected chatSelectedId = toSignal(
-    inject(ActivatedRoute).queryParamMap.pipe(
-      map((params) => params.get('chat'))
-    )
-  );
-
-  protected chatData = computed(() => {
-    const id = this.chatSelectedId();
-    const chats = this.chats();
-
-    const chat = chats.find((chat) => chat.id === id);
-    if (!chat) return null;
-
-    return {
-      chat,
-      chat$: this.#chatsService.getOne(chat.id),
-    };
-  });
-
-  protected chatBarTransform = computed(() => {
-    const id = this.chatSelectedId();
-    const chats = this.chats();
-
-    const i = chats.findIndex((chat) => chat.id === id);
-    if (i === -1) {
-      return null;
-    }
-
-    return `translateY(${i * 100}%)`;
-  });
-
-  toogleLayout() {
-    this.deckMode.set(
-      this.deckMode() === DeckLayout.Preview
-        ? DeckLayout.Focus
-        : DeckLayout.Preview
-    );
-  }
+  readonly rows = rows;
+  displayedColumns: string[] = [
+    'id',
+    'task',
+    'status',
+    'assigned_by',
+    'actions',
+  ];
 }
