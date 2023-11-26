@@ -1,19 +1,27 @@
 .message {
   display: grid;
-  gap: 0.5rem;
+  gap: 1rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   max-width: 80%;
   width: fit-content;
+
+  background-color: var(--other-bg-color);
+  color: var(--other-text-color);
 }
 
-:host.is-user {
+:host.is-me {
   display: flex;
   justify-content: flex-end;
 
   .message {
-    background-color: #b5f3ff;
+    background-color: var(--me-bg-color);
+    color: var(--me-text-color);
   }
+}
+
+.sub-content {
+  text-align: end;
+  font-size: 0.8rem;
 }

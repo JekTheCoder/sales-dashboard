@@ -7,7 +7,7 @@ import { User } from '../types';
 export class UserService {
   protected user = signal<User>({
     name: 'user',
-    id: 'user202',
+    id: 'vendedor',
     avatar: 'avatar',
     email: 'email',
   });

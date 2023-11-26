@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Chat, ChatMessage, ChatPreview } from './types';
+import { Chat, ChatPreview } from './types';
 import { of } from 'rxjs';
+import { messages } from './chats.data';
 
 @Injectable({
   providedIn: 'root',
@@ -54,27 +55,6 @@ export class ChatsService {
   }
 
   getOne(id: string) {
-    const messages: ChatMessage[] = [
-      {
-        id: 'message001',
-        user: {
-          id: 'user101',
-          name: 'Alice Smith',
-          avatar: 'alice_avatar.jpg',
-        },
-        content: 'Hello, how are you?',
-      },
-      {
-        id: 'message002',
-        user: {
-          id: 'user202',
-          name: 'Bob Johnson',
-          avatar: 'bob_avatar.jpg',
-        },
-        content: 'I am fine, thank you',
-      }
-    ];
-
     const chat: Chat = {
       id,
       messages,

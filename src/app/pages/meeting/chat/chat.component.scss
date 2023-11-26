@@ -20,7 +20,15 @@ footer {
 }
 
 .chat-content {
-  padding: 2rem 1rem;
+  margin: 2px 0;
+
+  height: 73vh; // TODO: fix this
+  overflow-y: auto;
+
+  app-chat-messages {
+    padding: 0.5rem 1rem;
+    display: block;
+  }
 }
 
 :host {

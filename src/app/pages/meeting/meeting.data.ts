@@ -1,4 +1,5 @@
 import { Meeting } from '@modules/meeting/types';
+import { messages } from '@modules/chat/chats.data';
 
 const annotations: Annotation[] = [
   {
@@ -48,26 +49,7 @@ export const meeting = {
   },
   chat: {
     id: 'aa3',
-    messages: [
-      {
-        id: 'message001',
-        user: {
-          id: 'user101',
-          name: 'Alice Smith',
-          avatar: 'alice_avatar.jpg',
-        },
-        content: 'Hello, how are you?',
-      },
-      {
-        id: 'message002',
-        user: {
-          id: 'user202',
-          name: 'Bob Johnson',
-          avatar: 'bob_avatar.jpg',
-        },
-        content: 'I am fine, thank you',
-      },
-    ],
+    messages,
   },
   annotations,
 };

@@ -16,6 +16,9 @@ export type Chat = {
 
 export type ChatMessage = {
   id: string;
-  user: UserPreview;
+  user: {
+    id: string;
+  };
   content: string;
+  date: string;
 };

@@ -5,6 +5,12 @@
   app-meeting {
     --bg-card: #{mat.get-theme-color($theme, background, card)};
     --text-secondary: #{mat.get-theme-color($theme, foreground, text-secondary)};
+
+    --other-bg-color: #{mat.get-theme-color($theme, background, card)};
+    --other-text-color: #{mat.get-theme-color($theme, foreground, text)};
+
+    --me-bg-color: #{mat.get-theme-color($theme, accent)};
+    --me-text-color: #fff;
   }
 }
 

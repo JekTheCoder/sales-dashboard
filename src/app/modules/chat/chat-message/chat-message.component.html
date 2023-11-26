@@ -1,9 +1,7 @@
 <div class="message">
-  <header>
-    <p>{{ message.user.name }}</p>
-  </header>
-
   <p>
-    {{ message.content }}
+    {{ content }}
   </p>
+
+  <p class="sub-content">{{ date | date : "medium" }}</p>
 </div>

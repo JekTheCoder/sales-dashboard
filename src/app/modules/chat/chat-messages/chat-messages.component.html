@@ -1,7 +1,11 @@
 <ul>
   @for (message of messages; track message.id) {
   <li>
-    <app-chat-message [message]="message" />
+    <app-chat-message
+      [content]="message.content"
+      [userId]="message.user.id"
+      [date]="message.date"
+    />
   </li>
   }
 </ul>

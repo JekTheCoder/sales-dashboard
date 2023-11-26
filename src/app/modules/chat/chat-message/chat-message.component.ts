@@ -6,8 +6,7 @@ import {
   HostBinding,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChatMessage } from '../types';
-import { IsUserService } from '@modules/user/is-user/is-user.service';
+import { MeMatcher } from '../me-matcher/me-matcher';
 
 @Component({
   selector: 'app-chat-message',
@@ -18,14 +17,16 @@ import { IsUserService } from '@modules/user/is-user/is-user.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChatMessageComponent {
-  #isUserService = inject(IsUserService);
+  #isMe = inject(MeMatcher);
 
-  @Input({ required: true }) message!: ChatMessage;
+  @Input({ required: true }) userId!: string;
+  @Input() content = '';
+  @Input() date = '';
 
-  @HostBinding('class.is-user')
-  protected isUser = false;
+  @HostBinding('class.is-me')
+  protected isMe = false;
 
   ngOnInit() {
-    this.isUser = this.#isUserService.isUser(this.message.user.id);
+    this.isMe = this.#isMe.isMe(this.userId);
   }
 }
